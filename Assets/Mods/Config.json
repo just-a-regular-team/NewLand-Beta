@@ -1,0 +1,10 @@
+[
+  {
+    "numLoadOrder": 1,
+    "Name": "Core"
+  },
+  {
+    "numLoadOrder": 2,
+    "Name": "ExampleMod"
+  }
+]
