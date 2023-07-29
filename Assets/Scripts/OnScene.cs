@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnScene : MonoBehaviour
 {
-     
+     Map map;
 
     // Start is called before the first frame update
     void Start()
@@ -12,7 +12,7 @@ public class OnScene : MonoBehaviour
         ModLoad.LoadingMod();
         Controller.ResetAll();
          
-        Map map = new Map("map_test",5);
+        map = new Map("map_test",5);
         map.CreateNewMap();
         Current.SetGame = new Game();//just leave it temporarily here
          
@@ -31,5 +31,6 @@ public class OnScene : MonoBehaviour
             Current.GetGamePlaying.GetTimeController.ChangeTimeSpeed = TimeSpeed.Normal;
         }
         Current.GetGamePlaying.UpdateGamePlay();
+        map.MapUpdate();
     }
 }

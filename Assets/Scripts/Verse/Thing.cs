@@ -20,6 +20,7 @@ public class Thing : Entity
         }
         
         Current.GetGamePlaying.GetTimeController.RegisterAllTickabilityFor(this);
+        Map.DrawThingController.RegisterThingToDraw(this);
         Destroyed = false;
         
     }
@@ -27,12 +28,14 @@ public class Thing : Entity
     public override void DeSpawn()
     {
         Current.GetGamePlaying.GetTimeController.DeRegisterAllTickabilityFor(this);
+        Map.DrawThingController.DeregisterThingToDraw(this);
         Destroyed = true;
     }
 
     public virtual void Destroy()
     {
         Current.GetGamePlaying.GetTimeController.DeRegisterAllTickabilityFor(this);
+        Map.DrawThingController.DeregisterThingToDraw(this);
         Destroyed = true;
     }
 

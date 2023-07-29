@@ -15,6 +15,11 @@ public class Map
         mapSize = size;
         sizeChunk = 5;
     }
+
+    private void ConstructComps()
+    {
+        DrawThingController = new DrawThingController(this);
+    }
     
     public void CreateNewMap()
     {
@@ -23,6 +28,7 @@ public class Map
         {
            
             m = new Map(mapName,mapSize);
+            m.ConstructComps();
             for(int x = -(mapSize);x<mapSize;x++)
             {
                 for(int y = -(mapSize);y<mapSize;y++)
@@ -49,6 +55,10 @@ public class Map
     public void MapUpdate()
     {
     }
-       
+    
+
+    public DrawThingController DrawThingController{get;private set;}
+
+
     public static Map MapWorking;
 }
