@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,7 +52,33 @@ public class TickList
 		}
 		this.ThingsToDeregister.Clear();
 
-        
+		List<Thing> list = this.allThinglist[Current.GetGamePlaying.GetTimeController.ticksGameInt % this.TickInterval];
+		for (int m = 0; m < list.Count; m++)
+		{
+			if (!list[m].Destroyed)
+			{
+				try
+				{
+					switch (this.tickType)
+					{
+					case TickType.Normal:
+						list[m].Tick();
+						break;
+					case TickType.Rare:
+						list[m].TickRare();
+						break;
+					case TickType.Long:
+						list[m].TickLong();
+						break;
+					}
+				}
+				catch (Exception ex)
+				{
+					Debug.LogError(ex);
+				}
+
+			}
+		}
     }
 
     public TickType tickType;

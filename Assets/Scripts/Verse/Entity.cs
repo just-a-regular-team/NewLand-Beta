@@ -4,8 +4,8 @@ public abstract class Entity
 {
     public abstract string Name{get;set;}
 
-    public abstract void SpawmSetup(Map map);
-    public abstract void Despawm();
+    public abstract void SpawnSetup(Map map);
+    public abstract void DeSpawn();
 
     public virtual void Tick()
 	{
