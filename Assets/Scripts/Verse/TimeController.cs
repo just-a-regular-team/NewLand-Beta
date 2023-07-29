@@ -45,6 +45,41 @@ public class TimeController
             return 1/(60f * TimeMultiplier);
         }
     }
+
+    public void RegisterAllTickabilityFor(Thing t)
+		{
+			TickList tickList = this.TickListFor(t);
+			if (tickList != null)
+			{
+				tickList.RegisterThing(t);
+			}
+		}
+
+		public void DeRegisterAllTickabilityFor(Thing t)
+		{
+			TickList tickList = this.TickListFor(t);
+			if (tickList != null)
+			{
+				tickList.DeregisterThing(t);
+			}
+		}
+		private TickList TickListFor(Thing t)
+		{
+			switch (t.data.tickType)
+			{
+			case TickType.Never:
+				return null;
+			case TickType.Normal:
+				return this.TickNormal;
+			case TickType.Rare:
+				return this.TickRare;
+			case TickType.Long:
+				return this.TickLong;
+			default:
+				throw new System.InvalidOperationException();
+			}
+		}
+
     public void TickControllerUpdate()
     {
         tickInFrame = 0;

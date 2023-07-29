@@ -28,5 +28,5 @@ public class Thing : Entity
     public int globalID;//Id of thing in map like Thing_"ID_On_Map"
     public string name;
 
-     
+    public DataOfThing data;
 }
