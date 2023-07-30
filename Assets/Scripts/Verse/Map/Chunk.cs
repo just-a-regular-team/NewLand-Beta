@@ -8,7 +8,7 @@ public class Chunk : MonoBehaviour
     public int width{get;private set;}
     public int height{get;private set;}
     public Vector2Int chunkWorldPosition;
-    public int radianDist = 30;
+    public int radianDist = 25;
     
     Action<Chunk> cbChunkWhenUpdate;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile
 {
-    int X,Y,Z;
+    float X,Y,Z;
     public Chunk chunk{get;private set;}
     public GameObject tileObj;
      
@@ -20,7 +20,7 @@ public class Tile
     {
         this.X = x;
         this.Y = y;
-        this.Z = 0;
+        this.Z = 0.001f;
         this.chunk = c;
 
         tileObj = CreatetileObj();
@@ -28,7 +28,7 @@ public class Tile
 
     private GameObject CreatetileObj()
     {
-        GameObject title_obj = new GameObject($"Tile({getX},{getY})"); 
+        GameObject title_obj = new GameObject($"Tile({getX},{getY})");
         title_obj.transform.position = new Vector3(getX+0.5f,getY+0.5f,getZ);
         
         title_obj.transform.SetParent(chunk.gameObject.transform,true);
@@ -39,9 +39,9 @@ public class Tile
         return title_obj;
     }
     
-    public int getX {get{return X;}}
-    public int getY {get{return Y;}}
-    public int getZ {get{return Z;}}
+    public float getX {get{return X;}}
+    public float getY {get{return Y;}}
+    public float getZ {get{return Z;}}
 
     public int setX {set{X = value;}}
     public int setY {set{Y = value;}}

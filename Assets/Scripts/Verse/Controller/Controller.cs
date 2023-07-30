@@ -9,7 +9,7 @@ public static class Controller
     public static void ResetAll()
     {
         sp = new SpriteManager();
-        
+        Current.Notify_LoadedSceneChanged();
     }
 
     public static SpriteManager SpriteManager {get{return sp;}}
