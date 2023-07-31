@@ -31,4 +31,23 @@ public class SpriteManager
 
 		return s;
 	}
+    public void LoadSprite(string atlasName,string spriteName,Rect spriteCoordinates, int pixelsPerUnit) {
+		if(spriteAssets.ContainsKey(spriteName))
+        {
+            return;
+        }
+        if(FindContent<Texture2D>.ListAllContent.ContainsKey(atlasName))
+        {
+            
+            Texture2D tex = FindContent<Texture2D>.ListAllContent[atlasName].t;
+		    Vector2 pivotPoint = new Vector2(0.5f, 0.5f);	// Ranges from 0..1 -- so 0.5f == center
+
+		    Sprite s = LoadSprite(tex,spriteCoordinates,pixelsPerUnit);
+            Debug.LogWarning($"Add succesful {spriteName}");
+            spriteAssets.TryAdd(spriteName,s);
+        }
+        
+
+		
+	}
 }

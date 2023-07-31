@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class ModLoad
 {
-    private static List<ModData> ModsInFoulder = new List<ModData>();
+    public static List<ModData> ModsInFoulder = new List<ModData>();
     private static List<ModData> ModIsEnable = new List<ModData>();
     public static void LoadingMod()
     {

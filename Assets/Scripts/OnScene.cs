@@ -11,6 +11,11 @@ public class OnScene : MonoBehaviour
     {
         ModLoad.LoadingMod();
         Controller.ResetAll();
+        foreach(ModData modData in ModLoad.ModsInFoulder)
+        {
+            ReadXml xml = new ReadXml();
+            xml.ReadAllXml(modData.rootDirInt);
+        }
          
         map = new Map("map_test",5);
         map.CreateNewMap();

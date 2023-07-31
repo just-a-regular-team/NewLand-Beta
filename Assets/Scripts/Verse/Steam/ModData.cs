@@ -11,8 +11,8 @@ using UnityEngine;
 public class ModData
 {
     private PreviewData previewData = new PreviewData();
-    
-    private DirectoryInfo rootDirInt;
+    [JsonIgnore]
+    public DirectoryInfo rootDirInt{get;private set;}
     private Texture2D previewImage;
     private bool isLoadPreviewImage;
     
@@ -31,6 +31,7 @@ public class ModData
 		this.strings = new ModContent<string>(this);
 
         previewData = ReadPreview();
+          
         this.Init();
     }
     private PreviewData ReadPreview()// Read file as xml
