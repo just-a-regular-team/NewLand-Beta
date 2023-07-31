@@ -53,7 +53,6 @@ public sealed class Mouse
 
     void NormalUpdate()
     {
-        Debug.Log(currMousePos);
     }
     void ViewStragetyUpdate()
     {

@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnScene : MonoBehaviour
+public abstract class OnScene : MonoBehaviour
 {
+    public UIRoot UI;
      Map map;
     Player player;
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
+        Current.Notify_LoadedSceneChanged();
         ModLoad.LoadingMod();
         Controller.ResetAll();
         foreach(ModData modData in ModLoad.ModsInFoulder)
@@ -26,7 +28,7 @@ public class OnScene : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if((Input.GetKeyDown(KeyCode.M)))
         {
@@ -43,12 +45,12 @@ public class OnScene : MonoBehaviour
         player.UpdatePlayer();
     }
 
-    public void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         player.FixedUpdatePlayer();
     }
 
-    public void OnGUI()
+    public virtual void OnGUI()
     {
         player.UpdatePlayerOnGUI();
     }
