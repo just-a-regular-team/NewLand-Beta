@@ -24,7 +24,7 @@ public class Player
     bool isDash = false;
     bool startCount = false;
 
-     
+    Mouse mouse;
     
     public void RegisterPlayerToWorld()
     {
@@ -41,11 +41,14 @@ public class Player
 
         
         Current.CameraFollow.target = playerObj.transform;
+        new InputData(KeyCode.B,EventType.KeyDown,delegate {Mouse.GetMouse.ChangeModeTo(Mouse.MouseMode.Build);});
+        new InputData(KeyCode.V,EventType.KeyDown,delegate {Mouse.GetMouse.ChangeModeTo(Mouse.MouseMode.ViewStragety);});
+        mouse = new Mouse();
     }
      
     public void UpdatePlayer()
     {
-        
+        mouse.MouseUpdate();
         if(Input.GetKey(KeyCode.W))
         {
         moveY +=1;
@@ -108,18 +111,5 @@ public class Player
     public void UpdatePlayerOnGUI()
     {
          
-    }
-    public void InputCallEvent()
-    {
-        
-        {
-            foreach(InputData input in InputData.KeyInputData)
-            {
-                if(input.GetKeyDown || input.GetKeyUp)
-                {
-                    input.inputEvent?.Invoke();
-                } 
-            }
-        }
     }
 }
