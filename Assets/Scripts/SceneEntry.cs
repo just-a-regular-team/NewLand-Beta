@@ -16,6 +16,7 @@ public class SceneEntry : OnScene
     public override void Update()
     {
         base.Update();
+        UI.UI_Update();
     }
     public override void FixedUpdate()
     {
@@ -24,5 +25,6 @@ public class SceneEntry : OnScene
     public override void OnGUI()
     {
         base.OnGUI();
+        UI.UI_OnGUI();
     }
 }

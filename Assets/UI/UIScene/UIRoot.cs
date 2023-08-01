@@ -8,6 +8,7 @@ public abstract class UIRoot
     public virtual void UI_Init()
     {
         canvas.InitCanvas();
+        windowUI.SetRoot(this);
     }
 
     // Update is called once per frame

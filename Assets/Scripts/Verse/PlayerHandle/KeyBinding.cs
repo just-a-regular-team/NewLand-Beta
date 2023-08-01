@@ -15,7 +15,7 @@ public class KeyBinding
         typeEvent = typeE;
         inputEvent += input;
 
-        keyBindings.Add(this);
+        AddKeyBingding(this);
     }
 
 
@@ -23,7 +23,12 @@ public class KeyBinding
 	{
 		get
 		{
-			return keyBindings.Contains(this) && (Input.GetKeyDown(mainkey) || Input.GetKeyDown(quickKey) && typeEvent == EventType.KeyDown);
+			bool result = keyBindings.Contains(this) && (Input.GetKeyDown(mainkey) || Input.GetKeyDown(quickKey) && typeEvent == EventType.KeyDown);
+			if(result)
+			{
+				CallBack();
+			}
+			return result;
 		}
 	} 
 	 
@@ -32,7 +37,12 @@ public class KeyBinding
 	{
 		get
 		{
-			return keyBindings.Contains(this) && (Input.GetKey(mainkey) || Input.GetKey(quickKey));
+			bool result = keyBindings.Contains(this) && (Input.GetKey(mainkey) || Input.GetKey(quickKey));
+			if(result)
+			{
+				CallBack();
+			}
+			return result;
 		}
 	}
  
@@ -40,8 +50,53 @@ public class KeyBinding
 	{
 		get
 		{
-			 
-			return keyBindings.Contains(this) && (Input.GetKeyUp(mainkey) || Input.GetKeyUp(quickKey)) && typeEvent == EventType.KeyUp;
+			bool result = keyBindings.Contains(this) && (Input.GetKeyUp(mainkey) || Input.GetKeyUp(quickKey)) && typeEvent == EventType.KeyUp;
+			if(result)
+			{
+				CallBack();
+			}
+			return result;
+		}
+	}
+
+	private void CallBack()
+	{
+		inputEvent?.Invoke();
+	}
+
+
+	private static void AddKeyBingding(KeyBinding keyBinding)
+	{
+		try
+		{
+			if(keyBindings.Contains(keyBinding))
+			{
+				Debug.LogError("keybingdings already have "+ keyBinding);
+				return;
+			}
+			foreach(KeyBinding key in keyBindings)
+			{
+				if(key.mainkey == keyBinding.mainkey)
+				{
+					Debug.LogWarning(string.Concat(new object[]
+					{
+						"Keybing have coincide on key ",
+						key.mainkey
+					}));
+				}else if(key.quickKey == keyBinding.quickKey && keyBinding.quickKey != KeyCode.None)
+				{
+					Debug.LogWarning(string.Concat(new object[]
+					{
+						"Keybing have coincide on quickkey ",
+						key.quickKey
+					}));
+				}
+			}
+			keyBindings.Add(keyBinding);
+		}
+		catch (System.Exception ex)
+		{
+			Debug.LogError(ex);
 		}
 	}
 

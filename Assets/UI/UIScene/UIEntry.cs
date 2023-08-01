@@ -8,6 +8,7 @@ public class UIEntry : UIRoot
     public override void UI_Init()
     {
         base.UI_Init();
+         
     }
 
     // Update is called once per frame
@@ -19,5 +20,6 @@ public class UIEntry : UIRoot
     public override void UI_OnGUI()
     {
         base.UI_OnGUI();
+        DoMenuEntry.MainMenuOnGUI();
     }
 }

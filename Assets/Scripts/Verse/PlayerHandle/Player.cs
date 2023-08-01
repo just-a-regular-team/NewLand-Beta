@@ -41,17 +41,13 @@ public class Player
 
         
         Current.CameraFollow.target = playerObj.transform;
-        new KeyBinding(KeyCode.B,EventType.KeyDown,delegate {Mouse.GetMouse.ChangeModeTo(Mouse.MouseMode.Build);});
-        new KeyBinding(KeyCode.V,EventType.KeyDown,delegate {Mouse.GetMouse.ChangeModeTo(Mouse.MouseMode.ViewStragety);});
-        new KeyBinding(KeyCode.M,EventType.KeyDown,delegate {Debug.LogWarning("Change time to fast");Current.GetGamePlaying.GetTimeController.ChangeTimeSpeed = TimeSpeed.Fast;});
-        new KeyBinding(KeyCode.N,EventType.KeyDown,delegate {Debug.LogWarning("Change time to normal");Current.GetGamePlaying.GetTimeController.ChangeTimeSpeed = TimeSpeed.Normal;});
-
         mouse = new Mouse();
     }
      
     public void UpdatePlayer()
     {
         mouse.MouseUpdate();
+        InputCheckEvent();
         if(Input.GetKey(KeyCode.W))
         {
         moveY +=1;
@@ -114,5 +110,16 @@ public class Player
     public void UpdatePlayerOnGUI()
     {
          
+    }
+
+    public void InputCheckEvent()
+    {
+        
+        {
+            foreach(KeyBinding input in KeyBinding.keyBindings)
+            {
+                if(input.GetKeyDown || input.GetKeyUp){} //Suck 
+            }
+        }
     }
 }

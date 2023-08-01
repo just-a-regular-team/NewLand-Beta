@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform target;
     public Vector3 offset = new Vector3(0,0,-10f);
-    public float dumping = 0.2f;
+    public float dumping = 0.06f;
 
     private Vector3 velocity = Vector3.zero;
 

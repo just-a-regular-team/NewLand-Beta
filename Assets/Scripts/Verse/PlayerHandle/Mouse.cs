@@ -47,8 +47,6 @@ public sealed class Mouse
             return;
         }
         //currMousePos.z = Current.CameraFollow.target.transform.position.z; not yet
-
-        InputCallEvent();
     }
 
     void NormalUpdate()
@@ -103,18 +101,6 @@ public sealed class Mouse
     
 
 
-    public void InputCallEvent()
-    {
-        
-        {
-            foreach(KeyBinding input in KeyBinding.keyBindings)
-            {
-                if(input.GetKeyDown || input.GetKeyUp)
-                {
-                    input.inputEvent?.Invoke();
-                } 
-            }
-        }
-    }
+     
      
 }

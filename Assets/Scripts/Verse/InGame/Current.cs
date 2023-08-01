@@ -15,7 +15,6 @@ public static class Current
     public static void Notify_LoadedSceneChanged()
     {
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        CameraFollow = mainCamera.gameObject.AddComponent<CameraFollow>();
         {
             if (InEntryScene)
 			{
@@ -26,6 +25,7 @@ public static class Current
 			}
 			if (InPlayScene)
 			{
+                CameraFollow = mainCamera.gameObject.AddComponent<CameraFollow>();
 				Current.sceneEntry = null;
 				Current.scenePlaying = GameObject.Find("OnScene").GetComponent<ScenePlaying>();
 				Current.sceneRoot = Current.scenePlaying;
