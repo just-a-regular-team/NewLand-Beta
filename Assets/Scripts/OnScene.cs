@@ -10,6 +10,7 @@ public abstract class OnScene : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
+        Settings.CreateOrLoad();
         Current.Notify_LoadedSceneChanged();
         ModLoad.LoadingMod();
         Controller.ResetAll();
@@ -30,15 +31,9 @@ public abstract class OnScene : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if((Input.GetKeyDown(KeyCode.M)))
-        {
-            Debug.LogWarning("Change time to fast");
-            Current.GetGamePlaying.GetTimeController.ChangeTimeSpeed = TimeSpeed.Fast;
-        }else if (Input.GetKeyDown(KeyCode.N))
-        {
-            Debug.LogWarning("Change time to normal");
-            Current.GetGamePlaying.GetTimeController.ChangeTimeSpeed = TimeSpeed.Normal;
-        }
+        ResolutionUtility.Update();
+		TimeProperty.Update();
+        
         Current.GetGamePlaying.UpdateGamePlay();
         map.MapUpdate();
 

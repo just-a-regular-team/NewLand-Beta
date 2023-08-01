@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class UICanvas
 {
-    static Canvas canvasInt;
-    static CanvasScaler canvasScaler;
-    static GraphicRaycaster graphicRaycaster;
+    public Canvas canvasInt;
+    public CanvasScaler canvasScaler;
+    public GraphicRaycaster graphicRaycaster;
 
     public void InitCanvas()
     {

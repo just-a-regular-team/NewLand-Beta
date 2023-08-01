@@ -7,7 +7,7 @@ public abstract class UIRoot
     // Start is called before the first frame update
     public virtual void UI_Init()
     {
-        
+        canvas.InitCanvas();
     }
 
     // Update is called once per frame
@@ -19,4 +19,6 @@ public abstract class UIRoot
     {
         
     }
+    public UICanvas canvas = new UICanvas();
+    public WindowUI windowUI = new WindowUI();
 }

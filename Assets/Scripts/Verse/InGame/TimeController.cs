@@ -19,7 +19,7 @@ public class TimeController
     private TickList TickRare = new TickList(TickType.Long);
     private TickList TickLong = new TickList(TickType.Long);
     private Stopwatch clock = new Stopwatch();
-    private float TimeMultiplier
+    public float TimeMultiplier
     {
         get
         {

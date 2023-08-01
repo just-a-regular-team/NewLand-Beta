@@ -79,5 +79,27 @@ public static class ResolutionUtility
         Resolution nativeResolution = ResolutionUtility.NativeResolution;
         ResolutionUtility.SetResolutionRaw(nativeResolution.width, nativeResolution.height, !ResolutionUtility.BorderlessFullscreen);
     }
+
+    public static void Update()
+    {
+        if (TimeProperty.frameCount % 30 == 0 && !Screen.fullScreen)
+        {
+            bool flag = false;
+            if (Screen.width != Settings.ScreenWidth)
+            {
+                Settings.ScreenWidth = Screen.width;
+                flag = true;
+            }
+            if (Screen.height != Settings.ScreenHeight)
+            {
+                Settings.ScreenHeight = Screen.height;
+                flag = true;
+            }
+            if (flag)
+            {
+                Settings.Save();
+            }
+        }
+    }
     private static bool? borderlessFullscreenCached;
 }

@@ -15,7 +15,7 @@ public class KeyBinding
         typeEvent = typeE;
         inputEvent += input;
 
-        KeyInputData.Add(this);
+        keyBindings.Add(this);
     }
 
 
@@ -23,7 +23,7 @@ public class KeyBinding
 	{
 		get
 		{
-			return KeyInputData.Contains(this) && (Input.GetKeyDown(mainkey) || Input.GetKeyDown(quickKey) && typeEvent == EventType.KeyDown);
+			return keyBindings.Contains(this) && (Input.GetKeyDown(mainkey) || Input.GetKeyDown(quickKey) && typeEvent == EventType.KeyDown);
 		}
 	} 
 	 
@@ -32,7 +32,7 @@ public class KeyBinding
 	{
 		get
 		{
-			return KeyInputData.Contains(this) && (Input.GetKey(mainkey) || Input.GetKey(quickKey));
+			return keyBindings.Contains(this) && (Input.GetKey(mainkey) || Input.GetKey(quickKey));
 		}
 	}
  
@@ -41,9 +41,9 @@ public class KeyBinding
 		get
 		{
 			 
-			return KeyInputData.Contains(this) && (Input.GetKeyUp(mainkey) || Input.GetKeyUp(quickKey)) && typeEvent == EventType.KeyUp;
+			return keyBindings.Contains(this) && (Input.GetKeyUp(mainkey) || Input.GetKeyUp(quickKey)) && typeEvent == EventType.KeyUp;
 		}
 	}
 
-    public static List<KeyBinding> KeyInputData = new List<KeyBinding>();
+    public static List<KeyBinding> keyBindings = new List<KeyBinding>();
 }

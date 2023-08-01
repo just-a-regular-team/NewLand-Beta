@@ -1,0 +1,12 @@
+{
+  "volumeMusic": 0.0,
+  "volumeSound": 0.0,
+  "volumeAmbient": 0.0,
+  "screenWidth": 1920,
+  "screenHeight": 1080,
+  "fullscreen": false,
+  "uiScale": 1.0,
+  "ZoomInViewStragety": 0.0,
+  "minZoomInViewStragety": 0.0,
+  "customCursorEnabled": false
+}

@@ -135,8 +135,14 @@ public static class FilePath
 		}
 	}	
 	public static string ConfigFolderPath => FolderUnderSaveData("SaveData/Config");
-    private static string SavedGamesFolderPath => FolderUnderSaveData("SaveData/Saves");
-
+    public static string SavedGamesFolderPath => FolderUnderSaveData("SaveData/Saves");
+	public static string PrefsFilePath
+	{
+		get
+		{
+			return Path.Combine(ConfigFolderPath, "SettingConfig.json");
+		}
+	}
 	private static string saveDataPath = null;
     private static string modsFolderPath = null;
 }
