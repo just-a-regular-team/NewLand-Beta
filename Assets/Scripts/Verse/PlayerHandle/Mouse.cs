@@ -107,7 +107,7 @@ public sealed class Mouse
     {
         
         {
-            foreach(InputData input in InputData.KeyInputData)
+            foreach(KeyBinding input in KeyBinding.KeyInputData)
             {
                 if(input.GetKeyDown || input.GetKeyUp)
                 {

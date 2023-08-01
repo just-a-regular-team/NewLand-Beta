@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputData
+public class KeyBinding
 {
     public KeyCode mainkey;
     public KeyCode quickKey;
     public EventType typeEvent;
     public delegate void InputEvent();
     public InputEvent inputEvent;
-    public InputData(KeyCode key,EventType typeE,InputEvent input)
+    public KeyBinding(KeyCode key,EventType typeE,InputEvent input)
     {
         mainkey = key;
         typeEvent = typeE;
@@ -45,5 +45,5 @@ public class InputData
 		}
 	}
 
-    public static List<InputData> KeyInputData = new List<InputData>();
+    public static List<KeyBinding> KeyInputData = new List<KeyBinding>();
 }

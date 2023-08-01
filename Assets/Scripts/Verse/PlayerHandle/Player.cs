@@ -41,8 +41,8 @@ public class Player
 
         
         Current.CameraFollow.target = playerObj.transform;
-        new InputData(KeyCode.B,EventType.KeyDown,delegate {Mouse.GetMouse.ChangeModeTo(Mouse.MouseMode.Build);});
-        new InputData(KeyCode.V,EventType.KeyDown,delegate {Mouse.GetMouse.ChangeModeTo(Mouse.MouseMode.ViewStragety);});
+        new KeyBinding(KeyCode.B,EventType.KeyDown,delegate {Mouse.GetMouse.ChangeModeTo(Mouse.MouseMode.Build);});
+        new KeyBinding(KeyCode.V,EventType.KeyDown,delegate {Mouse.GetMouse.ChangeModeTo(Mouse.MouseMode.ViewStragety);});
         mouse = new Mouse();
     }
      

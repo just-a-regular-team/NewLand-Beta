@@ -8,7 +8,6 @@ public class UIEntry : UIRoot
     public override void UI_Init()
     {
         base.UI_Init();
-        Debug.LogWarning("UIEntry");
     }
 
     // Update is called once per frame

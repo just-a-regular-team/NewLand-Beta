@@ -11,7 +11,7 @@ public static class WriteJson
     {
         
         string json = JsonConvert.SerializeObject(ModPack,Formatting.Indented);
-        string pathfile = FilePath.ModsFolderPath+"/Config.json";
+        string pathfile = FilePath.ConfigFolderPath+"/ConfigMod.json";
         if (File.Exists(pathfile))
         {
         File.Delete(pathfile);
