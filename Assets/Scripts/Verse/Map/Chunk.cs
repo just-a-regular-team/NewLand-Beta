@@ -63,6 +63,7 @@ public class Chunk : MonoBehaviour
         Enable = false;
         cbChunkWhenUpdate = cbRenderMode;
         CreatTilesInChunk();
+        cbRenderMode(this);
     }
     void Update()
     {

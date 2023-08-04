@@ -15,8 +15,8 @@ public class ScenePlaying : OnScene
         uiRoot.UI_Init();
 
 
-        map = new Map("map_test",5);
-        map.CreateNewMap();
+        map = new Map("map_test",10);
+        map = map.CreateNewMap();
         
         
         player = new Player("Player");
@@ -27,11 +27,11 @@ public class ScenePlaying : OnScene
     public override void Update()
     {
         base.Update();
-        map.MapUpdate();
         player.UpdatePlayer();
 
         uiRoot.UI_Update();
         Current.GetGamePlaying.UpdateGamePlay();
+        map.MapUpdate();
     }
     public override void FixedUpdate()
     {

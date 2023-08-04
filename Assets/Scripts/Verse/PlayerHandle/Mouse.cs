@@ -32,6 +32,7 @@ public sealed class Mouse
         if(_mouse==null){return;}
         EscapeModeCheck();
         currMousePos = Current.Camera.ScreenToWorldPoint(Input.mousePosition);
+        Current.Camera.orthographicSize = 5f;
         switch(mode)
         {
             case MouseMode.Normal:
@@ -54,7 +55,7 @@ public sealed class Mouse
     }
     void ViewStragetyUpdate()
     {
-
+        Current.Camera.orthographicSize = 15f;
     }
     void BuildUpdate()
     {

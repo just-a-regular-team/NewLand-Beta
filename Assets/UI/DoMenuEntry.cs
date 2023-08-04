@@ -8,7 +8,7 @@ public static class DoMenuEntry
     public static void MainMenuOnGUI()
     {
 
-        //GUI.DrawTexture(new Rect(0,0,UI.screenWidth,UI.screenHeight), BackGround, ScaleMode.ScaleToFit);
+        GUI.DrawTexture(new Rect(0,0,UI.screenWidth,UI.screenHeight), BackGround, ScaleMode.ScaleToFit);
         
         Rect rect = new Rect((float)(UI.screenWidth / 2) - (PaneSize.x / 2f), (float)(UI.screenHeight / 2) - (PaneSize.y / 2f) + 50f, PaneSize.x, PaneSize.y);
         GUI.Box(rect,"Someshit");

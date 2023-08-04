@@ -21,7 +21,7 @@ public class Map
         DrawThingController = new DrawThingController(this);
     }
     
-    public void CreateNewMap()
+    public Map CreateNewMap()
     {
         Map m = null;
         try
@@ -44,8 +44,8 @@ public class Map
         finally
         {
             MapWorking = m;
-            
         }
+        return m;
         
     }
     public void LoadMap(Map map)
@@ -54,6 +54,7 @@ public class Map
     }
     public void MapUpdate()
     {
+        DrawThingController.UpdateDrawThing();
     }
     
 

@@ -38,7 +38,6 @@ public class Page : WindowUI
         {
             nextLabel = "Next";
         }
-        Debug.Log(this.next == null);
         if (nextLabel == "Next" && (this.next == null))
         {
             nextLabel = "Done";
