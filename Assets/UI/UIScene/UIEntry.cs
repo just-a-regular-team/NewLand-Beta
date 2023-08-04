@@ -21,5 +21,6 @@ public class UIEntry : UIRoot
     {
         base.UI_OnGUI();
         DoMenuEntry.MainMenuOnGUI();
+        windowUI.WindowONGUI();
     }
 }

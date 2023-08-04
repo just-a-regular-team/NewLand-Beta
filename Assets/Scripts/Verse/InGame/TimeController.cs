@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class TimeController
 {
+    public bool Pause
+    {
+        get
+        {
+            return this.curTimeSpeed == TimeSpeed.Pause || LongEvent.ForcePause || Current.SceneRoot.uiRoot.windowUI.WindowsForcePause;
+        }
+    }
     public TimeSpeed ChangeTimeSpeed
     {
         set { curTimeSpeed = value;}
@@ -83,7 +90,7 @@ public class TimeController
     public void TickControllerUpdate()
     {
         tickInFrame = 0;
-        if(curTimeSpeed != TimeSpeed.Pause) // Or not open UI like menu or something like that
+        if(!Pause) // Or not open UI like menu or something like that
         {
             float curTimePerTick = CurTimePerTick;
             if (Mathf.Abs(Time.deltaTime - curTimePerTick) < curTimePerTick * 0.1f)
@@ -100,7 +107,7 @@ public class TimeController
             {
                 DoSingleTick();
                 tickInFrame++;
-                if(curTimeSpeed == TimeSpeed.Pause && (float)this.clock.ElapsedMilliseconds > 45.454544f)
+                if(Pause && (float)this.clock.ElapsedMilliseconds > 45.454544f)
                 {
                     break;
                 }

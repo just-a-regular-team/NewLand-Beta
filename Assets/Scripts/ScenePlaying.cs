@@ -10,14 +10,14 @@ public class ScenePlaying : OnScene
     // Start is called before the first frame update
     public override void Start()
     {
-        UI = new UIPlaying();
+        uiRoot = new UIPlaying();
         base.Start();
-        UI.UI_Init();
+        uiRoot.UI_Init();
 
 
         map = new Map("map_test",5);
         map.CreateNewMap();
-        Current.SetGame = new Game();//just leave it temporarily here
+        
         
         player = new Player("Player");
         player.RegisterPlayerToWorld();
@@ -30,6 +30,7 @@ public class ScenePlaying : OnScene
         map.MapUpdate();
         player.UpdatePlayer();
 
+        uiRoot.UI_Update();
         Current.GetGamePlaying.UpdateGamePlay();
     }
     public override void FixedUpdate()
@@ -40,6 +41,7 @@ public class ScenePlaying : OnScene
     public override void OnGUI()
     {
         base.OnGUI();
+        uiRoot.UI_OnGUI();
         player.UpdatePlayerOnGUI();
     }
 }

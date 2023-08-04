@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour
 {
-	// Token: 0x060003BF RID: 959 RVA: 0x0000E914 File Offset: 0x0000CB14
 	public static void ResetShutDown()
 	{
 		Singleton<T>.m_ShuttingDown = false;

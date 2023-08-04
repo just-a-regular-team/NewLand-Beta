@@ -8,7 +8,7 @@ public static class Current
 {
     static Game game;
     static Camera mainCamera;
-    static OnScene sceneRoot;
+    private static OnScene sceneRoot;
     static ScenePlaying scenePlaying;
     static SceneEntry sceneEntry;
      
@@ -36,9 +36,13 @@ public static class Current
 
     public static Game GetGamePlaying {get{return game;}}
     public static Game SetGame{set{game = value;}}
+
     public static Camera Camera{get{return mainCamera;}}
     public static CameraFollow CameraFollow;
 
+    public static OnScene SceneRoot{get{return sceneRoot;}}
+    public static OnScene ScenePlaying{get{return scenePlaying;}}
+    public static OnScene SceneEntry{get{return sceneEntry;}}
 
     public static bool InEntryScene
     {

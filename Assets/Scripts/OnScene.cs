@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class OnScene : MonoBehaviour
 {
-    public UIRoot UI;
+    protected bool Transitions;
+    public UIRoot uiRoot;
     
     // Start is called before the first frame update
     public virtual void Start()
@@ -12,21 +13,20 @@ public abstract class OnScene : MonoBehaviour
         KeyBindingOf.InitKeyBinding();
         Settings.CreateOrLoad();
         Current.Notify_LoadedSceneChanged();
-        ModLoad.LoadingMod();
-        Controller.ResetAll();
-        foreach(ModData modData in ModLoad.ModsInFoulder)
-        {
-            ReadXml xml = new ReadXml();
-            xml.ReadAllXml(modData.rootDirInt);
-        }
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
+        Transitions = false;
         ResolutionUtility.Update();
 		TimeProperty.Update();
-    
+        LongEvent.UpdateLongEvent(out bool CheckGotoAntherScene);
+        if(CheckGotoAntherScene)
+        {
+            Transitions = true;
+        }
+
     }
 
     public virtual void FixedUpdate()
@@ -36,6 +36,19 @@ public abstract class OnScene : MonoBehaviour
 
     public virtual void OnGUI()
     {
-        
+        if(Transitions){return;} // stop all UI to Transitions
+        GUI.depth = 50;
+        UI.ApplyUIScale();
+
+        // fadeTexture = new Texture2D(1, 1)
+        // {
+        //     name = "FadeTex",
+        // };
+        // backgroundStyle.normal.background = fadeTexture;
+        // fadeTexture.SetPixel(0, 0, Color.white);
+		// fadeTexture.Apply();
+        // GUI.Label(new Rect(-10f, -10f, UI.screenWidth + 10f, UI.screenHeight + 10f), fadeTexture, backgroundStyle);
     }
+    // private GUIStyle backgroundStyle = new();
+	// private Texture2D fadeTexture;
 }

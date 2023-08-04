@@ -17,18 +17,14 @@ public class TickList
 	{
 		get
 		{
-			switch (this.tickType)
-			{
-			case TickType.Normal:
-				return 1;
-			case TickType.Rare:
-				return 250;
-			case TickType.Long:
-					return 2000;
-			default:
-				return -1;
-			}
-		}
+            return this.tickType switch
+            {
+                TickType.Normal => 1,
+                TickType.Rare => 250,
+                TickType.Long => 2000,
+                _ => -1,
+            };
+        }
 	}
 
     public void RegisterThing(Thing t)

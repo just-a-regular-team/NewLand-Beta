@@ -8,7 +8,7 @@ public class WindowResizer
     {
         Vector2 mousePosition = Event.current.mousePosition;
         Rect rect = new Rect(winRect.width - 24f, winRect.height - 24f, 24f, 24f);
-        //if (Event.current.type == EventType.MouseDown && Mouse.IsOver(rect))
+        if (Event.current.type == EventType.MouseDown && (Mouse.IsOver(rect)))
         {
             this.isResizing = true;
             this.resizeStart = new Rect(mousePosition.x, mousePosition.y, winRect.width, winRect.height);
@@ -35,7 +35,7 @@ public class WindowResizer
         //Widgets.ButtonImage(rect, TexUI.WinExpandWidget, true);
         return new Rect(winRect.x, winRect.y, (float)((int)winRect.width), (float)((int)winRect.height));
     }
-    public Vector2 minWindowSize = new Vector2(150f, 150f);
+    public Vector2 minWindowSize = new(150f, 150f);
     private bool isResizing;
     private Rect resizeStart;
     private const float ResizeButtonSize = 24f;

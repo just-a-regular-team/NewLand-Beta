@@ -7,16 +7,23 @@ public class SceneEntry : OnScene
     // Start is called before the first frame update
     public override void Start()
     {
-        UI = new UIEntry();
+        uiRoot = new UIEntry();
         base.Start();
-        UI.UI_Init();
+        ModLoad.LoadingMod();
+        Controller.ResetAll();
+        foreach(ModData modData in ModLoad.ModsInFoulder)
+        {
+            ReadXml xml = new ReadXml();
+            xml.ReadAllXml(modData.rootDirInt);
+        }
+        uiRoot.UI_Init();
     }
 
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
-        UI.UI_Update();
+        uiRoot.UI_Update();
     }
     public override void FixedUpdate()
     {
@@ -25,6 +32,6 @@ public class SceneEntry : OnScene
     public override void OnGUI()
     {
         base.OnGUI();
-        UI.UI_OnGUI();
+        uiRoot.UI_OnGUI();
     }
 }

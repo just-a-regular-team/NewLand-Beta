@@ -19,5 +19,6 @@ public class UIPlaying : UIRoot
     public override void UI_OnGUI()
     {
         base.UI_OnGUI();
+        windowUI.WindowONGUI();
     }
 }

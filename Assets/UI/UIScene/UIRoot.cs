@@ -14,11 +14,11 @@ public abstract class UIRoot
     // Update is called once per frame
     public virtual void UI_Update()
     {
-        
+        windowUI.WindowUpdate();
     }
     public virtual void UI_OnGUI()
     {
-        
+        windowUI.HandleEventsHighPriority();
     }
     public UICanvas canvas = new UICanvas();
     public WindowUI windowUI = new WindowUI();

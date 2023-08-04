@@ -97,6 +97,21 @@ public sealed class Mouse
         
     }
 
+    public static bool IsInputBlockedNow
+    {
+        get
+        {
+            WindowUI windowStack = Current.SceneRoot.uiRoot.windowUI;
+            return  windowStack.MouseObscuredNow || !windowStack.CurrentWindowGetsInput; // || (mouseOverScrollViewStack && !mouseOverScrollViewStack.Peek());
+        }
+    }
+
+    
+    public static bool IsOver(Rect rect)
+    {
+        return rect.Contains(Event.current.mousePosition) && !Mouse.IsInputBlockedNow;
+    }
+
     #endregion
     
 
