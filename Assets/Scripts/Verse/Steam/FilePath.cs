@@ -90,6 +90,10 @@ public static class FilePath
 			{
 				return "Strings/";
 			}
+			if	(typeof(T) == typeof(Shader) || typeof(T) == typeof(Material))
+			{
+				return "Materials/";
+			}
 			throw new ArgumentException();
 		}
 	private static string GetOrCreateModsFolder(string folderName)

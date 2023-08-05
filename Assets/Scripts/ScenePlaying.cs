@@ -21,6 +21,25 @@ public class ScenePlaying : OnScene
         
         player = new Player("Player");
         player.RegisterPlayerToWorld();
+
+        DataOfPawn dataOfPawn = new DataOfPawn()
+        {
+            tickType = TickType.Normal,
+            GraphicData = new GraphicData()
+            {
+                graphic = typeof(SingleGraphic)
+            }
+        };
+        Vector2 pos = Vector2.zero;
+        Pawn pawn = new Pawn()
+        {
+            name = "Pawn",
+            position = pos,
+            data = dataOfPawn
+        };
+
+        pawn.SpawnSetup(Map.MapWorking);
+        Material mat = DefaultContent.BadMat;
     }
 
     // Update is called once per frame

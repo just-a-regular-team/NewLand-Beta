@@ -33,15 +33,15 @@ public class ThingWithComp : Thing
     }
     public void InitializeComps(Thing thing)
     {
-        if (this.data.comps.Any<ThingComponent>())
+        if (this.data.Comps.Any<ThingComponent>())
         {
             this.comps = new List<ThingComponent>();
-            for (int i = 0; i < this.data.comps.Count; i++)
+            for (int i = 0; i < this.data.Comps.Count; i++)
             {
                 ThingComponent thingComp = null;
                 try
                 {
-                    thingComp = (ThingComponent)Activator.CreateInstance(this.data.comps[i].GetType());
+                    thingComp = (ThingComponent)Activator.CreateInstance(this.data.Comps[i].GetType());
                     thingComp.thing = this;
                     this.comps.Add(thingComp);
                     thingComp.Init(this);
@@ -130,6 +130,24 @@ public class ThingWithComp : Thing
 			}
 		}
 	}
+
+    public override void Draw()
+    {
+        base.Draw();
+        this.Comps_Draw();
+    }
+    protected void Comps_Draw()
+    {
+        if (this.comps != null)
+        {
+            int count = this.comps.Count;
+            for (int i = 0; i < count; i++)
+            {
+                this.comps[i].Draw();
+            }
+        }
+    }
+
     #endregion
     public List<ThingComponent> comps;
 }

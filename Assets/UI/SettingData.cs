@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SettingData
-{
+{   
+    public bool devMode = true;
+    
     #region volume
     public float volumeMusic;
     public float volumeSound;

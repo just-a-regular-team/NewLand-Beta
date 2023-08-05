@@ -24,7 +24,7 @@ namespace BehaviorTree
                 Start();
             }
             state = Update();
-            if(state == State.Running ||state == State.Failure)
+            if(state == State.Success ||state == State.Failure)
             {
                 Stop();
                 isStarted = false;
@@ -32,9 +32,10 @@ namespace BehaviorTree
             
             return state;
         }
+        
 
-        public abstract void Start();
-        public abstract void Stop();
+        public virtual void Start(){}
+        public virtual void Stop(){}
         public abstract State Update();
     }
 }

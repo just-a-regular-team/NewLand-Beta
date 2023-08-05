@@ -54,17 +54,31 @@ public class Thing : Entity
     //Maybe update this shit func
     public virtual void DrawThing(Vector3 pos)
     {
-        var mesh = new Mesh {
-			name = "Procedural Mesh"
-		};
+        this.Graphic.DrawMesh(this);
+    }
 
-		mesh.vertices = new Vector3[] {
-			Vector3.zero, Vector3.right, Vector3.up
-		};
-        mesh.triangles = new int[] {
-			0, 2, 1
-		};
-        Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, null, 0);
+    public Graphic DefaultGraphic
+    {
+        get
+        {
+            if (this.graphicInt == null)
+            {
+                if (this.data.GraphicData == null)
+                {
+                    Debug.LogError("GraphicData of DataOfThing is null and have no solution now for this - check it out");
+                    return null; // try return defaulGraphicData here or find somthing like that in future
+                }
+                this.graphicInt = this.data.GraphicData.TryFindGraphicFor();
+            }
+            return this.graphicInt;
+        }
+    }
+    public virtual Graphic Graphic
+    {
+        get
+        {
+            return DefaultGraphic;
+        }
     }
 
     public int thingIDNumber = -1;// Id of thing like 000001->999999
@@ -77,4 +91,8 @@ public class Thing : Entity
 
     public Vector3 position;
     public GameObject obj;
+
+
+    private Graphic graphicInt;
+	private Graphic styleGraphicInt;
 }

@@ -6,6 +6,17 @@ using UnityEngine;
 
 public static class Settings
 {
+    public static bool DevMode
+    {
+        get 
+        {
+            return data.devMode;
+        }
+        set
+        {
+            data.devMode = value;
+        }
+    }
     public static int ScreenWidth
     {
         get
