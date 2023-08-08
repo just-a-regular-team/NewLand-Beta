@@ -7,7 +7,6 @@ public abstract class UIRoot
     // Start is called before the first frame update
     public virtual void UI_Init()
     {
-        canvas.InitCanvas();
         windowUI.SetRoot(this);
     }
 
@@ -20,6 +19,5 @@ public abstract class UIRoot
     {
         windowUI.HandleEventsHighPriority();
     }
-    public UICanvas canvas = new UICanvas();
     public WindowUI windowUI = new WindowUI();
 }

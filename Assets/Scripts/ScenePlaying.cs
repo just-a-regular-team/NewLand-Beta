@@ -45,6 +45,7 @@ public class ScenePlaying : OnScene
     // Update is called once per frame
     public override void Update()
     {
+        DrawGiz.Clear();
         base.Update();
         player.UpdatePlayer();
 

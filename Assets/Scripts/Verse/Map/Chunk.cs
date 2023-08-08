@@ -32,6 +32,7 @@ public class Chunk : MonoBehaviour
     public static GameObject CreateChunk(Vector2Int pos,int sizeChunk,Map m)
     {
         GameObject chunkObj = new GameObject($"Chunk_[{pos.x}|{pos.y}]");
+        chunkObj.transform.SetParent(ChunkParent.transform);
         chunkObj.transform.position = new Vector3(pos.x*sizeChunk,pos.y*sizeChunk);
 
         Chunk chunk = chunkObj.AddComponent<Chunk>();
@@ -94,4 +95,6 @@ public class Chunk : MonoBehaviour
             }
         }
     }
+
+    private static readonly GameObject ChunkParent = new GameObject("ChunkStorage");
 }

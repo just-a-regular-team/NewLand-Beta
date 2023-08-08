@@ -21,7 +21,7 @@ public class TickList
             {
                 TickType.Normal => 1,
                 TickType.Rare => 250,
-                TickType.Long => 2000,
+                TickType.Long => 2500,
                 _ => -1,
             };
         }

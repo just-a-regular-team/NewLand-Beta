@@ -20,5 +20,12 @@ public class UIPlaying : UIRoot
     {
         base.UI_OnGUI();
         windowUI.WindowONGUI();
+        if(Mouse.GetMouse.IsMouseMode(Mouse.MouseMode.ViewStragety))
+        {
+            selector.dragBox.DragBoxOnGUI();
+            selector.SelectorOnGUI();
+        }
     }
+
+    public Selector selector = new Selector();
 }

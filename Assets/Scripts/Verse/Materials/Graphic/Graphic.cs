@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Graphic
 {
-    public virtual Material MatAt(Thing thing = null)
+    public virtual Material Mat(Thing thing = null)
+    {
+        return null;
+    }
+    public virtual Mesh Mesh(Thing thing = null)
     {
         return null;
     }
@@ -14,9 +18,9 @@ public class Graphic
     }
     public void DrawMesh(Thing thing)
     {
-        Material mat = MatAt(thing);
-        Mesh mesh = MeshPool.plane10;
-        DrawMesh(mesh,thing.position,Quaternion.identity,mat);
+        Material mat = Mat(thing);
+        Mesh mesh = Mesh(thing);
+        DrawMesh(mesh,thing.position,thing.obj.transform.rotation,mat);
     }
     public void DrawMesh(Mesh mesh,Vector3 pos,Quaternion rot,Material mat,int layer = 0)
     {

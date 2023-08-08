@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Player
 {
+    public static Player GetPlayer;
     public Player(string name)
     {
         this.NamePlayer = name;
+        GetPlayer = this;
     }
     string NamePlayer;
 
-    GameObject playerObj;
+    public GameObject playerObj{get;private set;}
     Rigidbody2D rg;
     SpriteRenderer spRender;
 

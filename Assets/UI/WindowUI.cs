@@ -251,7 +251,6 @@ public class WindowUI
     }
     public void Notify_PressedCancel()
     {
-        Debug.Log("Start");
         if(parent != null)
         {
             for (int i = parent.windows.Count - 1; i >= 0; i--)
@@ -264,14 +263,12 @@ public class WindowUI
 			}
         }else
         {
-            Debug.Log("Find In UiRoot");
             WindowUI win = Current.SceneRoot.uiRoot.windowUI;
             for (int i = win.windows.Count - 1; i >= 0; i--)
 			{
 				if ((win.windows[i].closeOnCancel || win.windows[i].forceCatchAcceptAndCancelEventEvenIfUnfocused) && this.GetsInput(win.windows[i]))
 				{
 					win.windows[i].OnCancelKeyPressed();
-                    Debug.Log("Notify_Cancel at " + i);
 					return;
 				}
 			}
@@ -279,7 +276,6 @@ public class WindowUI
     }
     public void Notify_PressedAccept()
     {
-        Debug.Log("Start");
         if(parent != null)
         {
             for (int i = windows.Count - 1; i >= 0; i--)
@@ -302,7 +298,6 @@ public class WindowUI
 				}
 			}
         }
-        Debug.Log("Notify");
     }
     
     public bool WindowsForcePause
@@ -336,12 +331,10 @@ public class WindowUI
     //Waring: have a bug here when we used both in 
     public bool TryRemove(WindowUI window, bool doCloseSound = true)
     {
-        Debug.Log("StartTryRomve");
         bool flag = false;
         bool RemoveInParent = false;
         if(parent != null)
         {
-            Debug.Log("parent");
             for (int i = 0; i < parent.windows.Count; i++)
             {
                 if (parent.windows[i] == window)
@@ -368,7 +361,7 @@ public class WindowUI
          
         if (!flag)
         {
-            Debug.Log("Can't Removing");
+            Debug.Log("Can't Removing UI");
             return false;
         }
         window.PreClose();

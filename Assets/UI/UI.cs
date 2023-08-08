@@ -4,11 +4,18 @@ using UnityEngine;
 
 public static class UI
 {
+    public static Vector2 MousePositionOnUI
+    {
+        get
+        {
+            return (Input.mousePosition / Settings.UIScale);
+        }
+    }
     public static Vector2 MousePositionOnUIInverted
     {
         get
         {
-            Vector2 mousePositionOnUI = (Input.mousePosition / Settings.UIScale);
+            Vector2 mousePositionOnUI = MousePositionOnUI;
             mousePositionOnUI.y = (float)UI.screenHeight - mousePositionOnUI.y;
             return mousePositionOnUI;
         }
@@ -42,6 +49,12 @@ public static class UI
 		{
 			return GUIUtility.GUIToScreenPoint(guiPoint / Settings.UIScale);
 		}
+
+
+    public static Vector2 MapToUIPosition(this Vector3 v)
+    {
+        return new Vector2(v.x, (float)UI.screenHeight - v.y);
+    }
     public static int screenWidth;
     public static int screenHeight;
 }

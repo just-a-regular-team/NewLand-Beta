@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,11 +41,7 @@ public class Thing : Entity
         Destroyed = true;
     }
 
-    public override void Tick()
-    {
-        Debug.Log(position);
-    }
-
+    
     //Draw thing everyframe by drawThing
     public virtual void Draw()
     {
